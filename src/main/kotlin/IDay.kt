@@ -1,4 +1,4 @@
-sealed interface IDay {
+interface IDay {
     fun number(): Int
     fun partOne(): Long
     fun partTwo(): Long
