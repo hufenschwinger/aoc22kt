@@ -5,7 +5,15 @@ import java.nio.file.Path
 
 private const val rscRoot = "src/main/resources/"
 
-abstract class IDay<T> {
+abstract class IDay<A, B> {
+    fun getOne(): Long {
+        return partOne(inputOne())
+    }
+
+    fun getTwo(): Long {
+        return partTwo(inputTwo())
+    }
+
     private fun getInput(part: Int): List<String> {
         return Files.readAllLines(
             Path.of(rscRoot)
@@ -18,17 +26,15 @@ abstract class IDay<T> {
                 )
         )
     }
-
-    protected fun inputOne(): T {
-        return convert(getInput(1))
+    private fun inputOne(): A {
+        return convertOne(getInput(1))
     }
-
-    protected fun inputTwo(): T {
-        return convert(getInput(2))
+    protected abstract fun convertOne(lines: List<String>): A
+    private fun inputTwo(): B {
+        return convertTwo(getInput(2))
     }
-
-    abstract fun convert(lines: List<String>): T
+    protected abstract fun convertTwo(lines: List<String>): B
     abstract fun number(): Int
-    abstract fun partOne(): Long
-    abstract fun partTwo(): Long
+    protected abstract fun partOne(input: A): Long
+    protected abstract fun partTwo(input: B): Long
 }

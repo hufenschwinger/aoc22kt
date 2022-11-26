@@ -5,16 +5,16 @@ import pomawies.aoc22kt.days.framework.IDay
 import java.time.Duration
 import java.time.LocalDateTime
 
-fun execute(day: IDay<out Any>) {
+fun execute(day: IDay<*, *>) {
     val num = day.number()
 
     val startOne = LocalDateTime.now()
-    val one = day.partOne()
+    val one = day.getOne()
     val endOne = LocalDateTime.now()
     val durOne = Duration.between(startOne, endOne).toMillis()
 
     val startTwo = LocalDateTime.now()
-    val two = day.partTwo()
+    val two = day.getTwo()
     val endTwo = LocalDateTime.now()
     val durTwo = Duration.between(startTwo, endTwo).toMillis()
 

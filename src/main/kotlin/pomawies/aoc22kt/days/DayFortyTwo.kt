@@ -8,11 +8,11 @@ class DayFortyTwo : StringListDay() {
         return 42
     }
 
-    override fun partOne(): Long {
-        return 1L * inputOne().size
+    override fun partOne(input: List<String>): Long {
+        return 1L * input.size
     }
 
-    override fun partTwo(): Long {
-        return 2L * inputTwo().size
+    override fun partTwo(input: List<String>): Long {
+        return 2L * input.size
     }
 }
