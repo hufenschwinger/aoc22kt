@@ -26,13 +26,16 @@ abstract class IDay<A, B> {
                 )
         )
     }
+
     private fun inputOne(): A {
         return convertOne(getInput(1))
     }
-    protected abstract fun convertOne(lines: List<String>): A
+
     private fun inputTwo(): B {
         return convertTwo(getInput(2))
     }
+
+    protected abstract fun convertOne(lines: List<String>): A
     protected abstract fun convertTwo(lines: List<String>): B
     abstract fun number(): Int
     protected abstract fun partOne(input: A): Long
