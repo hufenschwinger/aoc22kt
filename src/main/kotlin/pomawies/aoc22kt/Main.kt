@@ -1,3 +1,7 @@
+package pomawies.aoc22kt
+
+import pomawies.aoc22kt.days.DayFortyTwo
+import pomawies.aoc22kt.days.IDay
 import java.time.Duration
 import java.time.LocalDateTime
 
@@ -16,7 +20,7 @@ fun execute(day: IDay) {
 
     println(
         String.format(
-            "Day %d\npart one %d in %d ms\npart two %d in %d ms\n",
+            "Day %d\npart one: %d in %d ms\npart two: %d in %d ms\n",
             num,
             one,
             durOne,
@@ -28,17 +32,5 @@ fun execute(day: IDay) {
 
 
 fun main() {
-    execute(object : IDay {
-        override fun number(): Int {
-            return 42
-        }
-
-        override fun partOne(): Long {
-            return 1
-        }
-
-        override fun partTwo(): Long {
-            return 2
-        }
-    })
+    execute(DayFortyTwo())
 }
