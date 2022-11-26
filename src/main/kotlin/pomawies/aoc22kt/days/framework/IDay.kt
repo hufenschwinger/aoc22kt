@@ -1,14 +1,14 @@
-package pomawies.aoc22kt.days
+package pomawies.aoc22kt.days.framework
 
 import java.nio.file.Files
 import java.nio.file.Path
 
-private const val srcRoot = "src/main/resources/"
+private const val rscRoot = "src/main/resources/"
 
 abstract class IDay<T> {
     private fun getInput(part: Int): List<String> {
         return Files.readAllLines(
-            Path.of(srcRoot)
+            Path.of(rscRoot)
                 .resolve(
                     String.format(
                         "D%dP%d.txt",
@@ -28,7 +28,6 @@ abstract class IDay<T> {
     }
 
     abstract fun convert(lines: List<String>): T
-
     abstract fun number(): Int
     abstract fun partOne(): Long
     abstract fun partTwo(): Long

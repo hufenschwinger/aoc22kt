@@ -1,9 +1,8 @@
 package pomawies.aoc22kt.days
 
-class DayFortyTwo : IDay<List<String>>() {
-    override fun convert(lines: List<String>): List<String> {
-        return lines
-    }
+import pomawies.aoc22kt.days.framework.StringListDay
+
+class DayFortyTwo : StringListDay() {
 
     override fun number(): Int {
         return 42

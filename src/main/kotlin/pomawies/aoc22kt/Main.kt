@@ -1,11 +1,11 @@
 package pomawies.aoc22kt
 
 import pomawies.aoc22kt.days.DayFortyTwo
-import pomawies.aoc22kt.days.IDay
+import pomawies.aoc22kt.days.framework.IDay
 import java.time.Duration
 import java.time.LocalDateTime
 
-fun execute(day: IDay) {
+fun execute(day: IDay<out Any>) {
     val num = day.number()
 
     val startOne = LocalDateTime.now()
@@ -29,7 +29,6 @@ fun execute(day: IDay) {
         )
     )
 }
-
 
 fun main() {
     execute(DayFortyTwo())
