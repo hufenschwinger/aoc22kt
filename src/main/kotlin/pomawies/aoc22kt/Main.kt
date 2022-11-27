@@ -1,35 +1,30 @@
 package pomawies.aoc22kt
 
-import pomawies.aoc22kt.days.DayFortyTwo
-import pomawies.aoc22kt.days.framework.IDay
+import pomawies.aoc22kt.days.TaskFortyTwoPartOne
+import pomawies.aoc22kt.days.framework.AbstractTask
 import java.time.Duration
 import java.time.LocalDateTime
 
-fun execute(day: IDay<*, *>) {
-    val num = day.number()
+fun execute(day: AbstractTask<*>) {
+    val dayNumber = day.dayNumber()
+    val partNumber = day.partNumber()
 
-    val startOne = LocalDateTime.now()
-    val one = day.getOne()
-    val endOne = LocalDateTime.now()
-    val durOne = Duration.between(startOne, endOne).toMillis()
-
-    val startTwo = LocalDateTime.now()
-    val two = day.getTwo()
-    val endTwo = LocalDateTime.now()
-    val durTwo = Duration.between(startTwo, endTwo).toMillis()
+    val start = LocalDateTime.now()
+    val solution = day.getSolution()
+    val end = LocalDateTime.now()
+    val duration = Duration.between(start, end).toMillis()
 
     println(
         String.format(
-            "Day %d\npart one: %d in %d ms\npart two: %d in %d ms\n",
-            num,
-            one,
-            durOne,
-            two,
-            durTwo
+            "Day %d\npart %d: %d in %d ms\n",
+            dayNumber,
+            partNumber,
+            solution,
+            duration
         )
     )
 }
 
 fun main() {
-    execute(DayFortyTwo())
+    execute(TaskFortyTwoPartOne())
 }
