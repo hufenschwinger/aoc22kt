@@ -1,11 +1,12 @@
 package pomawies.aoc22kt
 
-import pomawies.aoc22kt.days.TaskFortyTwoPartOne
+import pomawies.aoc22kt.days.one.DayOnePartOne
 import pomawies.aoc22kt.days.framework.AbstractTask
+import pomawies.aoc22kt.days.one.DayOnePartTwo
 import java.time.Duration
 import java.time.LocalDateTime
 
-fun execute(day: AbstractTask<*>) {
+fun execute(day: AbstractTask) {
     val dayNumber = day.dayNumber()
     val partNumber = day.partNumber()
 
@@ -26,5 +27,6 @@ fun execute(day: AbstractTask<*>) {
 }
 
 fun main() {
-    execute(TaskFortyTwoPartOne())
+    execute(DayOnePartOne())
+    execute(DayOnePartTwo())
 }

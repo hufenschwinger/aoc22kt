@@ -5,33 +5,18 @@ import java.nio.file.Path
 
 private const val rscRoot = "src/main/resources/"
 
-private fun readInput(dayNumber: Int, partNumber: Int): List<String> {
+private fun readInput(fileName: String): List<String> {
     return Files.readAllLines(
         Path.of(rscRoot)
-            .resolve(
-                String.format(
-                    "D%dP%d.txt",
-                    dayNumber,
-                    partNumber
-                )
-            )
+            .resolve("$fileName.txt")
     )
 }
 
-abstract class AbstractTask<T>(val day: Int, val part: Int) {
+abstract class AbstractTask(private val day: Int, private val part: Int, private val fileName: String) {
 
     fun getSolution(): Long {
         return solve(
-            loadInput()
-        )
-    }
-
-    private fun loadInput(): T {
-        return convertInput(
-            readInput(
-                dayNumber(),
-                partNumber()
-            )
+            readInput(fileName)
         )
     }
 
@@ -42,7 +27,5 @@ abstract class AbstractTask<T>(val day: Int, val part: Int) {
     fun partNumber(): Int {
         return part
     }
-
-    protected abstract fun convertInput(lines: List<String>): T
-    protected abstract fun solve(input: T): Long
+    protected abstract fun solve(input: List<String>): Long
 }
