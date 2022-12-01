@@ -18,7 +18,7 @@ private fun readInput(dayNumber: Int, partNumber: Int): List<String> {
     )
 }
 
-abstract class AbstractTask<T> {
+abstract class AbstractTask<T>(val day: Int, val part: Int) {
 
     fun getSolution(): Long {
         return solve(
@@ -35,8 +35,14 @@ abstract class AbstractTask<T> {
         )
     }
 
+    fun dayNumber(): Int {
+        return day
+    }
+
+    fun partNumber(): Int {
+        return part
+    }
+
     protected abstract fun convertInput(lines: List<String>): T
-    abstract fun dayNumber(): Int
-    abstract fun partNumber(): Int
     protected abstract fun solve(input: T): Long
 }

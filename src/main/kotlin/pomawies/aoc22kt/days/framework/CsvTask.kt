@@ -1,6 +1,6 @@
 package pomawies.aoc22kt.days.framework
 
-abstract class CsvTask<T> : AbstractTask<List<T>>() {
+abstract class CsvTask<T>(day: Int, part: Int) : AbstractTask<List<T>>(day, part) {
     override fun convertInput(lines: List<String>): List<T> {
         return lines
             .map { line -> line.split(sepChar()) }
