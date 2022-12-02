@@ -12,13 +12,9 @@ private fun readInput(fileName: String): List<String> {
     )
 }
 
-abstract class AbstractTask(private val day: Int, private val part: Int, private val fileName: String) {
+abstract class AbstractTask(private val day: Int, private val part: Int, fileName: String) {
 
-    fun getSolution(): Long {
-        return solve(
-            readInput(fileName)
-        )
-    }
+    protected val lines = readInput(fileName)
 
     fun dayNumber(): Int {
         return day
@@ -27,5 +23,5 @@ abstract class AbstractTask(private val day: Int, private val part: Int, private
     fun partNumber(): Int {
         return part
     }
-    protected abstract fun solve(input: List<String>): Long
+    abstract fun solve(): Long
 }

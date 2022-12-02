@@ -11,7 +11,7 @@ fun execute(day: AbstractTask) {
     val partNumber = day.partNumber()
 
     val start = LocalDateTime.now()
-    val solution = day.getSolution()
+    val solution = day.solve()
     val end = LocalDateTime.now()
     val duration = Duration.between(start, end).toMillis()
 
